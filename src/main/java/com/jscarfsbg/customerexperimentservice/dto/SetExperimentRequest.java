@@ -1,6 +1,5 @@
 package com.jscarfsbg.customerexperimentservice.dto;
 
-import ch.qos.logback.core.joran.sanity.Pair;
 import com.jscarfsbg.customerexperimentservice.exception.InputFailedValidation;
 import lombok.Data;
 import lombok.ToString;

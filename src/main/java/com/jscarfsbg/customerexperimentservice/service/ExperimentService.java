@@ -1,10 +1,18 @@
 package com.jscarfsbg.customerexperimentservice.service;
 
-import com.jscarfsbg.customerexperimentservice.dto.*;
+import com.jscarfsbg.customerexperimentservice.dto.DeleteExperimentResponse;
+import com.jscarfsbg.customerexperimentservice.dto.Experiment;
+import com.jscarfsbg.customerexperimentservice.dto.ExperimentsResponse;
+import com.jscarfsbg.customerexperimentservice.dto.SetExperimentRequest;
+import com.jscarfsbg.customerexperimentservice.dto.SetExperimentResponse;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 
 @Service
 public class ExperimentService {
@@ -51,9 +59,9 @@ public class ExperimentService {
                 .values()
                 .stream()
                 .map(
-                       userExperiments ->
-                            userExperiments.removeIf(
-                                    experiment -> Objects.equals(experiment.getId(), experimentId))
+                        userExperiments ->
+                                userExperiments.removeIf(
+                                        experiment -> Objects.equals(experiment.getId(), experimentId))
                 ).count();
     }
 
