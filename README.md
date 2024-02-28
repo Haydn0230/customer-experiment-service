@@ -11,25 +11,49 @@ This app enables this by exposing HTTP endpoints to:
 5. Assign a user to an experiment by Id
 
 ## Running the application: 
-Docker TODO
+The app is packaged as a docker image, meaning we can run it in any environment that has docker installed.
+
+See https://docs.docker.com/get-docker/ to install for your operating system.
+
+Building and running the application
+First you need to build: 
+```
+docker build . -t customer-experiment-service
+```
+
+Then you can run: 
+```
+docker run -p 8080:8080 -it customer-experiment-service:latest
+```
 
 
 ## Interface
 ### Create an experiment
-endpoint:
-    `POST localhost:8080/experiment`
+Endpoint:
+```
+localhost:8080/experiment
+```
+Verb: POST
 #### request
-`{
+```json
+{
     "name": "colour",
     "type": "red"
-}`
+}
+```
 #### response
-`{
-"experimentId": "4fabbf99-20fa-4957-8c3c-8d46eeadea87"
-}`
+```json
+{
+  "experimentId": "4fabbf99-20fa-4957-8c3c-8d46eeadea87"
+}
+```
 -------
 ### Get all experiments
-endpoint: `GET localhost:8080/experiment`
+Endpoint:
+```
+localhost:8080/experiment
+```
+Verb: GET
 #### response
 ```json
 [
@@ -55,8 +79,11 @@ endpoint: `GET localhost:8080/experiment`
 ```
 -------
 ### Delete an experiment
-
-endpoint: `DELETE localhost:8080/experiment/{id}`
+Endpoint: 
+```
+localhost:8080/experiment/{id}
+```
+Verb: DELETE
 #### response
 ```json
 {
@@ -67,8 +94,11 @@ endpoint: `DELETE localhost:8080/experiment/{id}`
 ```
 -------
 ### Assign an experiment to an anonymous user
-endpoint:
-`GET localhost:8080/experiment/user`
+Endpoint:
+```
+localhost:8080/experiment/user
+```
+Verb: GET
 #### response
 ```json
 {
@@ -86,8 +116,11 @@ endpoint:
 ```
 -------
 ### Assign an experiment to a user
-endpoint:
-`GET localhost:8080/experiment/user/{id}`
+Endpoint:
+```
+localhost:8080/experiment/user/{id}
+```
+Verb: GET
 #### response
 ```json
 {
